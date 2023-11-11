@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <string>
 #include <windows.system.h>
@@ -22,21 +21,9 @@ int main()
 
     cout << "Najstarszy czlowiek na swiecie mial 116 lat. " << endl;
     cout << "Wprowadz aktualny wiek (od 0 do 116 lat): " << endl;
-    cin >> currentAge;
-
-    if (currentAge < 0 || currentAge > 116)
-    {
-        for (;;)
-        {
-            cout << "Wpisano niepoprawny wiek. Wprowadz prawidlowy wiek: " << endl;
+    for (;;) {
             cin >> currentAge;
-            if (currentAge < 0 || currentAge > 116)
-            {
-                cout << "Wpisano niepoprawny wiek. Wprowadz prawidlowy wiek: " << endl;
-                cin >> currentAge;
-                continue;
-            }
-            else
+            if (currentAge > 0 && currentAge <= 116)
             {
                 futureAge = currentAge += 25;
                 cout << "----------\n"
@@ -44,14 +31,10 @@ int main()
                      << futureAge << endl;
                 return 0;
             }
+            else
+            {
+                cout << "Wpisano niepoprawny wiek. Wprowadz prawidlowy wiek: " << endl;
+                continue;
+            }
         }
     }
-    else
-    {
-        futureAge = currentAge += 25;
-        cout << "----------\n"
-                "Twoj wiek za 25 lat to "
-             << futureAge << endl;
-        return 0;
-    }
-}
